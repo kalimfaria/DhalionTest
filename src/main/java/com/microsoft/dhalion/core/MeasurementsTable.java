@@ -79,7 +79,7 @@ public class MeasurementsTable {
   private void addAll(final Collection<Measurement> measurements) {
     measurements.forEach(measurement -> {
       LOG.info("Measurements: " + measurement.component() + " " + measurement.instance() + " "
-              + measurement.type() + " " + measurement.instant().toEpochMill() + " " + measurement.value());
+              + measurement.type() + " " + measurement.instant().toEpochMilli() + " " + measurement.value());
       component.append(measurement.component());
       instance.append(measurement.instance());
       type.append(measurement.type());

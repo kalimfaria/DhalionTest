@@ -31,6 +31,9 @@ import static tech.tablesaw.api.QueryHelper.or;
  * {@link Measurement}s.
  */
 public class MeasurementsTable {
+
+  private static final Logger LOG = Logger.getLogger(MeasurementsTable.class.getName());
+
   private final Table measurements;
   private CategoryColumn component;
   private CategoryColumn instance;
@@ -72,8 +75,10 @@ public class MeasurementsTable {
     value = measurements.doubleColumn(VALUE);
   }
 
-  private void addAll(Collection<Measurement> measurements) {
+  private void addAll(final Collection<Measurement> measurements) {
     measurements.forEach(measurement -> {
+      LOG.info("Measurements: " + measurement.component() + " " + measurement.instance() + " "
+              + measurement.type() + " " + measurement.instant().toEpochMill() + " " + measurement.value());
       component.append(measurement.component());
       instance.append(measurement.instance());
       type.append(measurement.type());

@@ -65,6 +65,7 @@ public class PoliciesExecutor {
       }
 
       for (IHealthPolicy policy : policies) {
+        LOG.info("Logging Policy In Loop: "  + policy.toString());
         if (policy.getDelay().toMillis() > 0) {
           continue;
         }
